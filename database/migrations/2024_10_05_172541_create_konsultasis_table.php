@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('keluhan');
             $table->enum('status', ['pending', 'diterima', 'ditolak'])->default('pending');
             $table->foreignId('dokter_id')->constrained()->onDelete('cascade');
-            $table->foreignId('pasien')->constrained()->onDelete('cascade');
+            $table->foreignId('pasien_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
