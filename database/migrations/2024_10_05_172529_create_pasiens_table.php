@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email')->unique();
-            $table->string('nomor_telepon');
-            $table->string('alamat');
+            $table->string('nomor_telepon')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('golongan_darah')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('jenis_kelamin')->nullable();
