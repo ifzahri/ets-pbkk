@@ -9,7 +9,7 @@ class Pasien extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'email', 'nomor_telepon', 'alamat', 'golongan_darah', 'tanggal_lahir', 'jenis_kelamin'];
+    protected $fillable = ['nama', 'email', 'nomor_telepon', 'user_id', 'alamat', 'golongan_darah', 'tanggal_lahir', 'jenis_kelamin'];
 
     public function konsultasi()
     {

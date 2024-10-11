@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,6 +25,7 @@ class PasienFactory extends Factory
             'golongan_darah' => $this->faker->randomElement(['A', 'B', 'AB', 'O']),
             'tanggal_lahir' => $this->faker->date(),
             'jenis_kelamin' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
+            'user_id' => User::factory(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

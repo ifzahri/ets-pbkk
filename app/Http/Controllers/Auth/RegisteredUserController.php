@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
         $pasien = Pasien::create([
             'nama' => $request->name,
             'email' => $request->email,
+            'user_id' => $user->id
         ]);
 
         event(new Registered($user));
