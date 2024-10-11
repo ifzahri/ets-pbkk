@@ -17,15 +17,17 @@ class PasienFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::factory()->pasien()->create();
+
         return [
-            'nama' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'nama' => $user->name,
+            'email' => $user->email,
             'nomor_telepon' => $this->faker->phoneNumber(),
             'alamat' => $this->faker->address(),
             'golongan_darah' => $this->faker->randomElement(['A', 'B', 'AB', 'O']),
             'tanggal_lahir' => $this->faker->date(),
             'jenis_kelamin' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
-            'user_id' => User::factory(),
+            'user_id' => $user->id,
             'created_at' => now(),
             'updated_at' => now(),
         ];
