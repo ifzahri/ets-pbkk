@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dokter;
 use App\Models\Konsultasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KonsultasiController extends Controller
 {
@@ -18,40 +19,34 @@ class KonsultasiController extends Controller
     {
         Konsultasi::create([
             'dokter_id' => $request->dokter_id,
-            'pasien_id' => auth()->user()->id,
+            'pasien_id' => Auth::user()->pasien->id,
             'keluhan' => $request->keluhan,
             'tanggal_keluhan' => $request->tanggal_keluhan,
-            'status' => $request->status
+            'status' => 'pending',
         ]);
 
-        return redirect()->route('konsultasis.index');
+        return redirect()->route('konsultasi.index');
     }
 
     public function index()
     {
-        $pasien = auth()->user()->pasien;
+        $pasien = Auth::user()->pasien;
 
         if (!$pasien) {
-            return redirect()->back()->with('error', 'No pasien record found for this user.');
+            return redirect()->back()->with('error', 'No patient record found for this user.');
         }
 
         $konsultasis = Konsultasi::where('pasien_id', $pasien->id)->get();
-        return view('konsultasis.index', compact('konsultasis'));
+        $dokters = Dokter::all();
+
+        return view('pasien.index', compact('pasien', 'konsultasis', 'dokters'));
     }
 
-    public function accept($id)
+    public function destroy($id)
     {
-        $konsultasi = Konsultasi::find($id);
-        $konsultasi->update(['status' => 'diterima']);
+        $konsultasi = Konsultasi::findOrFail($id);
+        $konsultasi->delete();
 
-        return back();
-    }
-
-    public function deny($id)
-    {
-        $konsultasi = Konsultasi::find($id);
-        $konsultasi->update(['status' => 'ditolak']);
-
-        return back();
+        return redirect()->route('konsultasi.index')->with('success', 'Konsultasi deleted successfully.');
     }
 }

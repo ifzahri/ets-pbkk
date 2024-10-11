@@ -15,7 +15,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('dokter', DokterController::class);
+    Route::resource('dokter', DokterController::class)->only(['index', 'store']);
     Route::resource('konsultasi', KonsultasiController::class);
 
     Route::get('/dokter/dashboard', [DokterController::class, 'index'])->name('dokter.index');
