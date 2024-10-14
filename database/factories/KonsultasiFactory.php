@@ -21,6 +21,7 @@ class KonsultasiFactory extends Factory
         return [
             'tanggal_keluhan' => $this->faker->dateTime(),
             'keluhan' => $this->faker->sentence(),
+            'penanganan' => $this->faker->sentence(),
             'status' => $this->faker->randomElement(['pending', 'diterima', 'ditolak']),
             'dokter_id' => Dokter::factory(),
             'pasien_id' => Pasien::factory(),

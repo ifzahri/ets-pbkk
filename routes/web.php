@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dokter/dashboard', [DokterController::class, 'index'])->name('dokter.index');
     Route::get('/pasien/dashboard', [PasienController::class, 'index'])->name('pasien.index');
 
+    Route::get('/dokter/konsultasi/{id}', [DokterController::class, 'show'])->name('dokter.show');
+    Route::post('/dokter/konsultasi/{id}/medication', [DokterController::class, 'addMedication'])->name('dokter.addMedication');
+
     Route::post('/konsultasis/{id}/accept', [KonsultasiController::class, 'accept'])->name('konsultasis.accept');
     Route::post('/konsultasis/{id}/deny', [KonsultasiController::class, 'deny'])->name('konsultasis.deny');
 

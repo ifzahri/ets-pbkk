@@ -20,7 +20,7 @@
                         <li>
                             <strong>Keluhan:</strong> {{ $konsultasi->keluhan }} <br>
                             <strong>Status:</strong> {{ $konsultasi->status }} <br>
-                            <strong>Tanggal Keluhan:</strong> {{ $konsultasi->tanggal_keluhan->format('Y-m-d H:i') }} <br>
+                            <strong>Tanggal Keluhan:</strong> {{ $konsultasi->tanggal_keluhan }} <br>
                         </li>
                     @endforeach
                 </ul>

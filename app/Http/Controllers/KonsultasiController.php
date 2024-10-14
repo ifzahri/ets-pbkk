@@ -28,18 +28,25 @@ class KonsultasiController extends Controller
         return redirect()->route('konsultasi.index');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $pasien = Auth::user()->pasien;
-
+    
         if (!$pasien) {
             return redirect()->back()->with('error', 'No patient record found for this user.');
         }
-
-        $konsultasis = Konsultasi::where('pasien_id', $pasien->id)->get();
-        $dokters = Dokter::all();
-
-        return view('pasien.index', compact('pasien', 'konsultasis', 'dokters'));
+    
+        $search = $request->input('search');
+        
+        // Eager load dokter for pagination and search
+        $konsultasis = Konsultasi::where('pasien_id', $pasien->id)
+            ->when($search, function($query, $search) {
+                $query->where('keluhan', 'like', '%' . $search . '%');
+            })
+            ->with('dokter') // Eager load dokter
+            ->paginate(10); // Add pagination
+    
+        return view('pasien.index', compact('pasien', 'konsultasis'));
     }
 
     public function destroy($id)

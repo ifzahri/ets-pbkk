@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->dateTime('tanggal_keluhan');
             $table->text('keluhan');
+            $table->text('penanganan')->nullable();
             $table->enum('status', ['pending', 'diterima', 'ditolak'])->default('pending');
             $table->foreignId('dokter_id')->constrained()->onDelete('cascade');
             $table->foreignId('pasien_id')->constrained()->onDelete('cascade');
