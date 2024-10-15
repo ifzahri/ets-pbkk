@@ -14,6 +14,7 @@ class DokterController extends Controller
         $dokter = Dokter::where('email', Auth::user()->email)->firstOrFail();
 
         $status = $request->input('status');
+        $search = $request->input('search');
         
         $query = Konsultasi::where('dokter_id', $dokter->id)
             ->with('pasien');
@@ -21,10 +22,15 @@ class DokterController extends Controller
         if ($status) {
             $query->where('status', $status);
         }
+        if ($search) {
+            $query->whereHas('pasien', function ($q) use ($search) {
+                $q->where('nama', 'like', '%' . $search . '%');
+            });
+        }
 
         $konsultasis = $query->paginate(10);
     
-        return view('dokter.index', compact('dokter', 'konsultasis', 'status'));
+        return view('dokter.index', compact('dokter', 'konsultasis', 'status', 'search'));
     }
     
     public function show($id)

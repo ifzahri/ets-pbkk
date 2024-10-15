@@ -36,9 +36,9 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <input type="text" id="simple-search"
+                                        <input type="text" id="search" name="search"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                            placeholder="Search" required="">
+                                            value="{{ request('search') }}" placeholder="Search" required="">
                                     </div>
                                 </form>
                             </div>
@@ -62,6 +62,7 @@
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
+                                        <th scope="col" class="px-4 py-4">Nama</th>
                                         <th scope="col" class="px-4 py-4">Keluhan</th>
                                         <th scope="col" class="px-4 py-3">Status</th>
                                         <th scope="col" class="px-4 py-3">Tanggal Keluhan</th>
@@ -73,6 +74,7 @@
                                 <tbody>
                                     @foreach ($konsultasis as $konsultasi)
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <td class="px-4 py-3">{{ $konsultasi->pasien->nama }}</td>
                                             <td class="px-4 py-3">{{ $konsultasi->keluhan }}</td>
                                             <td class="px-4 py-3">{{ $konsultasi->status }}</td>
                                             <td class="px-4 py-3">{{ $konsultasi->tanggal_keluhan }}</td>
