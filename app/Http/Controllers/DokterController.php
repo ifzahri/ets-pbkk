@@ -9,15 +9,22 @@ use Illuminate\Http\Request;
 
 class DokterController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $dokter = Dokter::where('email', Auth::user()->email)->firstOrFail();
+
+        $status = $request->input('status');
         
-        $konsultasis = Konsultasi::where('dokter_id', $dokter->id)
-            ->with('pasien')
-            ->paginate(10);
+        $query = Konsultasi::where('dokter_id', $dokter->id)
+            ->with('pasien');
+        
+        if ($status) {
+            $query->where('status', $status);
+        }
+
+        $konsultasis = $query->paginate(10);
     
-        return view('dokter.index', compact('dokter', 'konsultasis'));
+        return view('dokter.index', compact('dokter', 'konsultasis', 'status'));
     }
     
     public function show($id)
