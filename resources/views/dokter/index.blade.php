@@ -262,8 +262,7 @@
                         </table>
                         <!-- Pagination -->
                         <nav class="p-4 flex justify-between items-center">
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Showing 1-10 of 1000</span>
-                            {{ $konsultasis->links() }}
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{{ $konsultasis->links() }}</span>
                         </nav>
                     </div>
             @endif

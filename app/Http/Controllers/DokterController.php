@@ -28,7 +28,7 @@ class DokterController extends Controller
             });
         }
 
-        $konsultasis = $query->paginate(10);
+        $konsultasis = $query->paginate(5);
 
         return view('dokter.index', compact('dokter', 'konsultasis', 'status', 'search'));
     }
