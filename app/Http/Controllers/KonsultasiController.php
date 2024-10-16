@@ -43,8 +43,8 @@ class KonsultasiController extends Controller
             ->when($search, function($query, $search) {
                 $query->where('keluhan', 'like', '%' . $search . '%');
             })
-            ->with('dokter') // Eager load dokter
-            ->paginate(10); // Add pagination
+            ->with('dokter')
+            ->paginate(5);
     
         return view('pasien.index', compact('pasien', 'konsultasis'));
     }
