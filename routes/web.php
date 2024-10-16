@@ -5,6 +5,7 @@ use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,18 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', function () {
+    $user = Auth::user();
+    if ($user->role === 'dokter') {
+        return redirect()->route('dokter.index');
+    } elseif ($user->role === 'pasien') {
+        return redirect()->route('pasien.index');
+    } else {
+        return view('dashboard'); 
+    }
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::resource('dokter', DokterController::class)->only(['index', 'store']);
