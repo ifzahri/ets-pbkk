@@ -96,6 +96,7 @@
                         <thead class="bg-gray-100 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-4 py-4">Symptoms</th>
+                                <th scope="col" class="px-4 py-4">Doctor</th>
                                 <th scope="col" class="px-4 py-4">Status</th>
                                 <th scope="col" class="px-4 py-4">Date</th>
                                 <th scope="col" class="px-4 py-4">Actions</th>
@@ -105,6 +106,7 @@
                             @foreach ($konsultasis as $konsultasi)
                                 <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
                                     <td class="px-4 py-4">{{ $konsultasi->keluhan }}</td>
+                                    <td class="px-4 py-4">{{ $konsultasi->dokter->nama }}</td>
                                     <td class="px-4 py-4">{{ $konsultasi->status }}</td>
                                     <td class="px-4 py-4">{{ $konsultasi->tanggal_keluhan }}</td>
                                     <td class="px-4 py-4">
