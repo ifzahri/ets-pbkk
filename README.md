@@ -1,12 +1,12 @@
-# Group Report: CRUD Implementation with Laravel 11 and Flowbite
+# CRUD Implementation with Laravel 11 and Flowbite
 
 ## Group Identity
 
-- **Group Number**: 
-- **Members**:
-  - [Iftala Zahri Sukmana] - [5025221002]
-  - [Fairuuz Azmi Firas] - [5025221057]
-- **Project Title**: [Mediheal]
+- **Group Number**: 2 
+- **Members**
+  - Iftala Zahri Sukmana - 5025221002
+  - Fairuuz Azmi Firas - 5025221057
+- **Project Title**: Mediheal
 
 ---
 
@@ -18,11 +18,13 @@
 - Integrate Flowbite for responsive UI components and a modern user experience.
 
 ### 1.2 Tasks and Timeline
-- **Week 1**: Set up the Laravel 11 environment and create the basic project structure.
-- **Week 2**: Develop database models and migrations for [e.g., users, doctors, patients, consultations].
-- **Week 3**: Implement CRUD functionality for [e.g., consultations, user accounts].
-- **Week 4**: Integrate Flowbite components into Blade templates for UI consistency.
-- **Week 5**: Test and finalize the application.
+- **Week 1**: 
+    - Set up the Laravel 11 environment and create the basic project structure
+    - Develop database models and migrations for [e.g., users, dokter, pasien, konsultasis].
+- **Week 2**: 
+    - Implement CRUD functionality.
+    - Integrate Flowbite components into Blade templates for UI consistency.
+    - Test and finalize the application.
 
 ---
 
@@ -30,6 +32,7 @@
 
 ### 2.1 Functionalities Achieved
 - [✓] Users can create, read, update, and delete [e.g., consultation records].
+- [✓] Patients can book and delete appointments with doctors.
 - [✓] Doctors can view their appointments and accept or reject consultations.
 - [✓] Flowbite components integrated for navigation, modals, and form inputs.
   
@@ -42,8 +45,23 @@
 ---
 
 ## 3. Implementation
+### 3.1 Landing Page
+![image](https://github.com/user-attachments/assets/8b14de9e-a48d-4fd9-b153-1ef1be023afe)
 
-### 3.1 Setting Up Laravel 11
-1. **Installation**:
-   ```bash
-   composer create-project --prefer-dist laravel/laravel medical-consultation
+### 3.2 Register Page
+![image](https://github.com/user-attachments/assets/d9b6acd2-8bce-486b-b6ba-1b3c4d1502d3)
+
+### 3.3 Login Page
+![image](https://github.com/user-attachments/assets/3af50e53-9859-47b6-bec1-a6aad7bab055)
+
+### 3.4 Dashboard Page
+- 3.4.1 Doctor Page
+    ![image](https://github.com/user-attachments/assets/afce416a-8285-4c81-ab1b-898c02933a0b)
+
+- 3.4.2 Patient Page
+    ![image](https://github.com/user-attachments/assets/e4fc3eb1-93f1-4b73-a817-a5132d575849)
+### 3.5 Profile Page
+![image](https://github.com/user-attachments/assets/6839df55-6a20-49c3-ab87-7934504c129a)
+    
+### Youtube
+
