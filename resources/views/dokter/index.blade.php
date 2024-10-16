@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class=>
+    <div class="container mx-auto p-6 space-y-6">
 
         <!-- Dokter Information Card -->
         <a href="#"
-            class="block w-full max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            class="block max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Welcome, Dr. {{ $dokter->nama }}
             </h5>
@@ -17,7 +17,7 @@
             <p class="font-normal text-gray-700 dark:text-gray-400">Phone: {{ $dokter->nomor_telepon }}</p>
             <p class="font-normal text-gray-700 dark:text-gray-400">Specialization: {{ $dokter->keahlian }}</p>
         </a>
-
+        
         <!-- Konsultasi Requests Section -->
         <section class="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow">
             <h2 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Your Konsultasi Requests
@@ -63,7 +63,8 @@
                                                 {{ request('status') == 'diterima' ? 'selected' : '' }}>Accepted
                                             </option>
                                             <option value="ditolak"
-                                                {{ request('status') == 'ditolak' ? 'selected' : '' }}>Rejected</option>
+                                                {{ request('status') == 'ditolak' ? 'selected' : '' }}>Rejected
+                                            </option>
                                         </select>
                                     </form>
                                 </div>
@@ -107,8 +108,7 @@
                                                             data-modal-target="updateDataModal-{{ $konsultasi->id }}"
                                                             data-modal-toggle="updateDataModal-{{ $konsultasi->id }}"
                                                             class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
-                                                            <svg class="w-4 h-4 mr-2"
-                                                                xmlns="http://www.w3.org/2000/svg"
+                                                            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                                                 viewbox="0 0 20 20" fill="currentColor"
                                                                 aria-hidden="true">
                                                                 <path
@@ -125,9 +125,8 @@
                                                             data-modal-toggle="readDataModal-{{ $konsultasi->id }}"
                                                             class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                             <svg class="w-4 h-4 mr-2"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                viewbox="0 0 20 20" fill="currentColor"
-                                                                aria-hidden="true">
+                                                                xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
                                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                                     d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -140,7 +139,8 @@
                                         </td>
                                     </tr>
                                     <!-- Update modal -->
-                                    <div id="updateDataModal-{{ $konsultasi->id }}" tabindex="-1" aria-hidden="true"
+                                    <div id="updateDataModal-{{ $konsultasi->id }}" tabindex="-1"
+                                        aria-hidden="true"
                                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative p-4 w-full max-w-2xl max-h-full">
                                             <!-- Modal content -->
@@ -149,15 +149,13 @@
                                                 <!-- Modal header -->
                                                 <div
                                                     class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                                                    <h3
-                                                        class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                                         Update Data</h3>
                                                     <button type="button"
                                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                                         data-modal-toggle="updateDataModal-{{ $konsultasi->id }}">
-                                                        <svg aria-hidden="true" class="w-5 h-5"
-                                                            fill="currentColor" viewbox="0 0 20 20"
-                                                            xmlns="http://www.w3.org/2000/svg">
+                                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
+                                                            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd"
                                                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                                                 clip-rule="evenodd" />
@@ -166,20 +164,24 @@
                                                     </button>
                                                 </div>
                                                 <!-- Modal body -->
-                                                <form action="{{ route('dokter.addMedication', ['id' => $konsultasi->id]) }}" method="POST">
+                                                <form
+                                                    action="{{ route('dokter.addMedication', ['id' => $konsultasi->id]) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                                         <div>
                                                             <label for="name"
                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                                            <input type="text" name="name" id="name" value="{{ $konsultasi->pasien->nama }}"
+                                                            <input type="text" name="name" id="name"
+                                                                value="{{ $konsultasi->pasien->nama }}"
                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                                                 disabled>
                                                         </div>
                                                         <div>
                                                             <label for="keluhan"
                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keluhan</label>
-                                                            <input type="text" name="keluhan" id="keluhan" value="{{ $konsultasi->keluhan }}"
+                                                            <input type="text" name="keluhan" id="keluhan"
+                                                                value="{{ $konsultasi->keluhan }}"
                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                                                 disabled>
                                                         </div>
@@ -200,8 +202,7 @@
                                         </div>
                                     </div>
                                     <!-- Read modal -->
-                                    <div id="readDataModal-{{ $konsultasi->id }}" tabindex="-1"
-                                        aria-hidden="true"
+                                    <div id="readDataModal-{{ $konsultasi->id }}" tabindex="-1" aria-hidden="true"
                                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative p-4 w-full max-w-xl max-h-full">
                                             <!-- Modal content -->
