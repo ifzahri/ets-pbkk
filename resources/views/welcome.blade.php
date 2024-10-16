@@ -7,7 +7,7 @@
         <title>Mediheal</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="dark:bg-black dark:text-white/50 flex items-center justify-center min-h-screen">
+    <body class="flex min-h-screen items-center justify-center dark:bg-black dark:text-white/50">
         <section class="bg-white dark:bg-gray-900">
             <div class="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-12 lg:py-16">
                 <h1
@@ -16,7 +16,8 @@
                     Welcome to Mediheal!
                 </h1>
                 <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400 sm:px-16 lg:text-xl xl:px-48">
-                    We focus on providing healthcare solutions that leverage technology, innovation, and expertise to enhance patient care and drive better health outcomes.
+                    We focus on providing healthcare solutions that leverage technology, innovation, and expertise to
+                    enhance patient care and drive better health outcomes.
                 </p>
                 <div
                     class="mb-8 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 lg:mb-16"
