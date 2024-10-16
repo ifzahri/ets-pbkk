@@ -25,7 +25,7 @@ class KonsultasiController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('konsultasi.index');
+        return redirect()->route('pasien.index');
     }
 
     public function index(Request $request)
@@ -54,6 +54,6 @@ class KonsultasiController extends Controller
         $konsultasi = Konsultasi::findOrFail($id);
         $konsultasi->delete();
 
-        return redirect()->route('konsultasi.index')->with('success', 'Konsultasi deleted successfully.');
+        return redirect()->route('pasien.index')->with('success', 'Konsultasi deleted successfully.');
     }
 }
