@@ -52,8 +52,6 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         event(new Registered($pasien));
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('auth.signin', absolute: false));
     }
 }
