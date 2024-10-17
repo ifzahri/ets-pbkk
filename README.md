@@ -46,7 +46,7 @@
 
 ## 3. Implementation
 ### 3.1 Landing Page
-![image](https://github.com/user-attachments/assets/8b14de9e-a48d-4fd9-b153-1ef1be023afe)
+![image](https://github.com/user-attachments/assets/fa9b8e0e-2840-478c-8884-a5e6aec579be)
 
 ### 3.2 Register Page
 ![image](https://github.com/user-attachments/assets/d9b6acd2-8bce-486b-b6ba-1b3c4d1502d3)
@@ -64,4 +64,5 @@
 ![image](https://github.com/user-attachments/assets/6839df55-6a20-49c3-ab87-7934504c129a)
     
 ### Youtube
-
+For our project demo, click the link below:
+[View Video](https://youtu.be/ZIIkIPAuVDw)

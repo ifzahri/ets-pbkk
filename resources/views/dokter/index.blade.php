@@ -70,30 +70,27 @@
                                 class="flex w-full flex-shrink-0 flex-col items-stretch justify-end space-y-2 md:w-auto md:flex-row md:items-center md:space-x-3 md:space-y-0"
                             >
                                 <div class="flex w-full items-center space-x-3 md:w-auto">
-                                    <form action="{{ route('dokter.index') }}" method="GET">
-                                        <label for="status">Filter by Status:</label>
-                                        <select name="status" id="status" onchange="this.form.submit()">
-                                            <option value="">All</option>
-                                            <option
-                                                value="pending"
-                                                {{ request('status') == 'pending' ? 'selected' : '' }}
-                                            >
-                                                Pending
-                                            </option>
-                                            <option
-                                                value="diterima"
-                                                {{ request('status') == 'diterima' ? 'selected' : '' }}
-                                            >
-                                                Accepted
-                                            </option>
-                                            <option
-                                                value="ditolak"
-                                                {{ request('status') == 'ditolak' ? 'selected' : '' }}
-                                            >
-                                                Rejected
-                                            </option>
+                                    <form action="{{ route('dokter.index') }}" method="GET" class="flex items-center space-x-3 p-4 bg-white rounded-lg  dark:bg-gray-800">
+                                        <label for="status" class="text-lg font-semibold text-gray-700 dark:text-gray-200">Filter by Status:</label>
+                                        <select name="status" id="status" class="appearance-none bg-white border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            onchange="this.form.submit()">
+                                            <option value="" class="text-gray-500">All</option>
+                                            <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
+                                            <option value="diterima" {{ request('status') == 'diterima' ? 'selected' : '' }}>Accepted</option>
+                                            <option value="ditolak" {{ request('status') == 'ditolak' ? 'selected' : '' }}>Rejected</option>
                                         </select>
                                     </form>
+                                    
+                                    <style>
+                                        select {
+                                            transition: border-color 0.3s, box-shadow 0.3s;
+                                        }
+                                        select:hover {
+                                            border-color: #5C6BC0;
+                                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                        }
+                                    </style>
+                                    
                                 </div>
                             </div>
                         </div>
